@@ -40,6 +40,8 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
         #region PROPERTIES
 
+        private bool walking;
+
         /// <summary>
         /// The character's walk speed.
         /// </summary>
@@ -115,7 +117,7 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
             var forwardAmount = Mathf.InverseLerp(0.0f, runSpeed, Mathf.Abs(movement.forwardSpeed));
 
-            animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
+            animator.SetBool("walking", walking);
             animator.SetBool("OnGround", movement.isGrounded);
 
             if (!movement.isGrounded)
@@ -136,8 +138,9 @@ namespace ECM.Walkthrough.OverShoulderCamera
                 z = Input.GetAxisRaw("Vertical")
             };
 
+            if(moveDirection.z != 0) walking = true;
+            else walking = false;
             // Transform move direction to be relative to character's current orientation
-
             moveDirection = transform.TransformDirection(moveDirection);
 
             // In this implementation, we rotate the character's (along its yaw) using the mouse
