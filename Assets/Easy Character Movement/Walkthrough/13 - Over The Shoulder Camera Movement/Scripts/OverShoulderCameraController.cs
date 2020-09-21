@@ -126,11 +126,12 @@ namespace OrangeTech.Cameras
             // Assign camera position to target position (our character)
 
             transform.position = target.position;
-
+            transform.position += new Vector3(0, 0.5f, 0);
             // Assign character's yaw rotation as the camera yaw rotation (Y-Axis)
 
             var targetYawRotation = Quaternion.LookRotation( Vector3.ProjectOnPlane(target.forward, transform.up) );
             transform.rotation = targetYawRotation;
+            
             
             // Perform mouse look (up / down)
 
