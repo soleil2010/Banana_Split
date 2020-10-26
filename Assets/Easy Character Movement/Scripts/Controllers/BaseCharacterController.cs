@@ -133,7 +133,6 @@ namespace ECM.Controllers
         private bool _allowVerticalMovement;
         
         private bool _restoreVelocityOnResume = true;
-
         #endregion
 
         #region PROPERTIES
@@ -507,6 +506,10 @@ namespace ECM.Controllers
 
         #region METHODS
 
+        private void Start() {
+        }
+
+
         /// <summary>
         /// Pause Rigidbody physical interaction, will restore current velocities (linear, angular) if desired (restoreVelocityOnResume == true).
         /// While paused, will turn the Rigidbody into kinematic, preventing any physical interaction.
@@ -573,8 +576,9 @@ namespace ECM.Controllers
             {
                 // On landing, reset _isJumping flag
 
-                if (!movement.wasGrounded && movement.isGrounded)
+                if (!movement.wasGrounded && movement.isGrounded){
                     _isJumping = false;
+                }
             }
 
             // Update jump ungrounded timer (post jump tolerance time)
