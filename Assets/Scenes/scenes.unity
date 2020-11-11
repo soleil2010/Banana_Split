@@ -2815,6 +2815,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973032697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb2c0034af8991a45967a994beac8332, type: 3}
+  m_Script: {fileID: 11500000, guid: de60257c6eb0a5948b9e5165e53588af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet_Emitter: {fileID: 1845441286}
+  Bullet: {fileID: 6156397302277513067, guid: a68d4185b91026f4089ff6beac20bb8a, type: 3}
+  Bullet_Forward_Force: 2000
